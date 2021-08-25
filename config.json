@@ -1,3 +1,9 @@
 {
-    "port": 356
+    "port": 356,
+    "des": {
+        "title": "服务器在codemao-hacker的名称",
+        "content": "服务器在codemao-hacker上的描述"
+    },
+    "using": false,
+    "keys": ["QHmeiIe902jEh9p3e"]
 }
