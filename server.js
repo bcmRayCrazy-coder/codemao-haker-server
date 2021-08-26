@@ -28,33 +28,41 @@ app.get('/keyCheck/:key', (req, res) => {
     res.end();
 });
 
-app.get('/:key/start/:formId', (req, res) => {
+app.get('/:key/start/:postId', (req, res) => {
     var key = req.params.key;
-    var canUse = false;
+    var canUse = config.using;
+    var s = setInterval(() => {}, 0);
     config.keys.forEach(k => {
         if (k === key) canUse = true;
     });
+    res.status(200);
+    res.charset = 'utf-8';
     if (canUse) {
         if (config.using) {
-            res.write('false');
+            res.write(JSON.stringify({ err: true, c: "服务器繁忙" }));
         } else {
-            res.write('true');
+            res.write(JSON.stringify({ err: false, c: "成功!" }));
             updateConfig({ using: true });
-            const s = setInterval(() => {
-                axios.get(`https://api.codemao.cn/web/forums/posts/${postID}/details`, {
+            s = setInterval(() => {
+                axios.get(`https://api.codemao.cn/web/forums/posts/${req.params.postID}/details`, {
                     headers: {
                         Host: "api.codemao.cn",
                     }
+                }).then(({ data }) => {
+                    console.log(data);
+                }).catch((err) => {
+                    console.error(err);
                 })
             }, 105);
-            setTimeout(() => {
-                clearInterval(s);
-                updateConfig({ using: false });
-            }, 10000);
         }
     } else {
-        res.write('false');
+        res.write(JSON.stringify({ err: true, c: "key错误" }));
     }
+    setTimeout(() => {
+        clearInterval(s);
+        updateConfig({ using: false });
+        console.log("timeout!");
+    }, 10000);
     res.end();
 });
 

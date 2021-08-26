@@ -1,27 +1,28 @@
 {
-  "name": "codemao-haker-server",
-  "version": "1.0.0",
-  "description": "using with alan-best/codemao-hacker",
-  "main": "server.js",
-  "scripts": {
-    "test": "npx nodemon server.js",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bcmRayCrazy-coder/codemao-haker-server.git"
-  },
-  "keywords": [
-    "codemao"
-  ],
-  "author": "bcmray_crazy",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bcmRayCrazy-coder/codemao-haker-server/issues"
-  },
-  "homepage": "https://github.com/bcmRayCrazy-coder/codemao-haker-server#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "express": "^4.17.1"
-  }
+    "name": "codemao-haker-server",
+    "version": "1.0.0",
+    "description": "using with alan-best/codemao-hacker",
+    "main": "server.js",
+    "scripts": {
+        "test": "npx nodemon server.js",
+        "start": "node server.js",
+        "serve": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bcmRayCrazy-coder/codemao-haker-server.git"
+    },
+    "keywords": [
+        "codemao"
+    ],
+    "author": "bcmray_crazy",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bcmRayCrazy-coder/codemao-haker-server/issues"
+    },
+    "homepage": "https://github.com/bcmRayCrazy-coder/codemao-haker-server#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "express": "^4.17.1"
+    }
 }
